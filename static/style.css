@@ -432,3 +432,7 @@ li.tutor-course-content-list-item:hover {
 .couse-content h4 {
   margin: 2rem 0 1rem 0;
 }
+
+.tutor-name-cat {
+  min-height: 70px !important;
+}
