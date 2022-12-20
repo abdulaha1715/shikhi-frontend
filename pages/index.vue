@@ -40,8 +40,8 @@ export default {
   },
   methods: {
     async getCourses() {
-      const response = this.courses = await this.$axios.$get('/courses');
-        this.courses = response.data;
+      const response = await this.$axios.$get('/courses');
+      this.courses = response.data;
     },
   },
 

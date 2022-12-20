@@ -3,6 +3,7 @@
     <section class="pt-5 pb-4">
         <div class="container">
             <div class="row">
+				{{ course }}
                 <div class="tutor-course-ratings">
                     <div class="tutor-ratings">
                         <div class="tutor-ratings">
@@ -13,14 +14,14 @@
                             <span class="tutor-icon-star-bold"><i class="bi bi-star"></i></span>
                         </div>
                         <div class="tutor-ratings-average">5.0</div>
-                        <div class="tutor-ratings-count">(7)</div>
+                        <div class="tutor-ratings-count">({{ course.course_reviews?.length }})</div>
                     </div>
                 </div>
-                <h5 class="card-title mt-3 mb-3">Card title</h5>
+                <h5 class="card-title mt-3 mb-3">{{ course.course_name }}</h5>
                 <div class="single-page-tutor-meta mb-3">
                     <div class="d-inline">
-                        <span class="tutor-meta-icon tutor-icon-user-line" area-hidden="true">Cagetories:</span>
-                        <span class="tutor-meta-value">Programming</span>
+                        <span class="tutor-meta-icon tutor-icon-user-line" area-hidden="true">Cagetory:</span>
+                        <span class="tutor-meta-value">{{ course.course_category }}</span>
                     </div>
 
                     <div class="d-inline p-2 wishlist">
@@ -36,7 +37,7 @@
                 <!-- single page left side content start -->
                 <div class="col-lg-8 left-tutor-col">
                     <div class="row">
-                        <img src="~/assets/images/js.jpg" class="card-img-top" alt="..." />
+						<img :src="course.course_thumb" :alt="course.course_name" srcset="" class="card-img-top" />
                     </div>
                     <div class="row single-tutor-info">
                         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -53,31 +54,7 @@
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                <h4 class="about-course-heading">About Course</h4>
-                                <p class="course-info">
-                                    এই কোর্সটিতে ফ্রন্টেন্ড এ ভিউ নাক্সট যা টেইলউইন্ড সিএসএস দিয়ে করা হবে এবং ব্যাকেন্ড লারাভেল এ করা হবে। এটি হবে একটা ইকমার্স ওয়েবসাইট।
-                                </p>
-                                <div class="tutor-course-detail">
-                                    <h4>What Will You Learn?</h4>
-                                    <ul class="tutor-course-detail-ul">
-                                        <li>
-                                            <span class="tutor-course-detail-bullet"></span>
-                                            <span>এই কোর্সটি করে সুপার স্পিডের একটি ইকমার্স ওয়েবসাইট তৈরি করতে পারবেন।</span>
-                                        </li>
-                                        <li>
-                                            <span class="tutor-course-detail-bullet"></span>
-                                            <span>এই কোর্সটি করে সুপার স্পিডের একটি ইকমার্স ওয়েবসাইট তৈরি করতে পারবেন।</span>
-                                        </li>
-                                        <li>
-                                            <span class="tutor-course-detail-bullet"></span>
-                                            <span>এই কোর্সটি করে সুপার স্পিডের একটি ইকমার্স ওয়েবসাইট তৈরি করতে পারবেন।</span>
-                                        </li>
-                                        <li>
-                                            <span class="tutor-course-detail-bullet"></span>
-                                            <span>এই কোর্সটি করে সুপার স্পিডের একটি ইকমার্স ওয়েবসাইট তৈরি করতে পারবেন।</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <div v-html="course.course_side_note"></div>
                                 <div class="couse-content">
                                     <h4>Course Content</h4>
                                     <div class="accordion" id="accordionExample">
@@ -262,13 +239,13 @@
                         <div class="single-tutor-meta mb-3">
                             <ul class="single-tutor-ul">
                                 <li>
-                                    <span><i class="bi bi-water"></i></span>Intermediate
+                                    <span><i class="bi bi-water"></i></span>{{ course.course_level }}
                                 </li>
                                 <li>
-                                    <span><i class="bi bi-mortarboard"></i></span>1719 Total Enrolled
+                                    <span><i class="bi bi-mortarboard"></i></span>{{ course?.course_students?.length }} Total Enrolled
                                 </li>
                                 <li>
-                                    <span><i class="bi bi-arrow-repeat"></i></span>August 24, 2022 Last Updated
+                                    <span><i class="bi bi-arrow-repeat"></i></span>Last Updated - {{ course.last_update }}
                                 </li>
                             </ul>
                         </div>
@@ -280,43 +257,16 @@
                             <div class="single-tutor-user-meta">
                                 <div class="d-inline">
                                     <div class="tutor-avatar d-inline">
-                                        <img src="https://ui-avatars.com/api/?background=0D8ABC&color=fff&name=Shadhin+Ahmed" alt="" srcset="" />
+                                        <img :src="course?.course_teacher?.user_thumb" :alt="course?.course_teacher?.user_name" srcset="" />
                                         By
-                                        <a href="#">Polash Mahmud</a>
+                                        <a href="#">{{ course?.course_teacher?.user_name }}</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <hr class="border-1 mb-2" />
                         <div class="single-tutor-meta-side-info card-body">
-                            <h4>Material Includes</h4>
-                            <ul class="single-tutor-meta-side-info-ul">
-                                <li>
-                                    Github Code
-                                </li>
-                                <li>
-                                    Design File
-                                </li>
-                                <li>
-                                    Discord help
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="single-tutor-requirements card-body">
-                            <h4 class="">Requirements</h4>
-                            <div class="single-tutor-req-desc">
-                                <span class="single-tutor-require-bullet-icon"></span>
-                                <span class="single-tutor-require-desc">এই কোর্সটি করার জন্য আপনাকে অবশ্যই বেসিক এইচটিএমএল, সিএসএস, জেকুয়েরি, পিএইচপি জানা থাকতে হবে। এগুলা না জানা থাকলে শিখুন.নেট থেকে কোর্সগুলা করে নিতে পারেন।</span>
-                            </div>
-                        </div>
-
-                        <div class="single-tutor-requirements card-body">
-                            <h4 class="">Audience</h4>
-                            <div class="single-tutor-req-desc">
-                                <span class="single-tutor-require-bullet-icon"></span>
-                                <span class="single-tutor-require-desc">যারা বেসিক এইচটিএমএল, সিএসএস, জাভাস্ক্রীপ্ট এবং পিএইচপি শিখেছেন, ইকমার্স ওয়েবসাইট তৈরি করতে চান তাদের জন্যই এই কোর্স।</span>
-                            </div>
+                            <div v-html="course.course_side_note"></div>
                         </div>
                     </div>
                 </div>
@@ -328,7 +278,20 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      course: []
+    }
+  },
+  created() {
+    this.getCourse()
+  },
+  methods: {
+    async getCourse() {
+    	const response = await this.$axios.get(this.$route.path);
+    	this.course    = response.data;
+    },
+  }
 }
 </script>
 
