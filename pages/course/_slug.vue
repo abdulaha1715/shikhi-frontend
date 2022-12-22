@@ -3,7 +3,9 @@
     <section class="pt-5 pb-4">
         <div class="container">
             <div class="row">
-				{{ course }}
+                <pre>
+                    <!-- {{ course }} -->
+                </pre>
                 <div class="tutor-course-ratings">
                     <div class="tutor-ratings">
                         <div class="tutor-ratings">
@@ -238,7 +240,7 @@
 
                         <div class="single-tutor-meta mb-3">
                             <ul class="single-tutor-ul">
-                                <li>
+                                <li class="text-capitalize">
                                     <span><i class="bi bi-water"></i></span>{{ course.course_level }}
                                 </li>
                                 <li>
@@ -289,7 +291,7 @@ export default {
   methods: {
     async getCourse() {
     	const response = await this.$axios.get(this.$route.path);
-    	this.course    = response.data;
+    	this.course    = response.data.data;
     },
   }
 }
