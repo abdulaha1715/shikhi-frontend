@@ -202,6 +202,7 @@ ul.single-tutor-meta-side-info-ul li::before,
 }
 .tutor-class-content-list {
   padding: 0;
+  margin-bottom: 10px;
 }
 ul.tutor-course-detail-ul {
   display: grid;
@@ -212,13 +213,13 @@ ul.tutor-course-detail-ul {
 li.tutor-course-content-list-item {
   display: flex;
   justify-content: space-between;
-  padding: 5px 10px 0px 10px;
+  padding: 4px 20px 4px 20px;
 }
 li.tutor-course-content-list-item:hover {
   background-color: #ddd;
 }
 .accordion-body {
-  padding: 0.5rem 0.25rem;
+  padding: 0;
 }
 .tutor-align-center {
   display: flex;

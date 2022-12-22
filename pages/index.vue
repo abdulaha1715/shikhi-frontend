@@ -17,7 +17,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<Courseitem v-for="course in courses" :key="course.id" :course="course"></Courseitem>
+					<Courseitem v-for="course in courses" :key="course.course_id" :course="course"></Courseitem>
 					{{ courses }}
 				</div>
 			</div>

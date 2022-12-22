@@ -48,7 +48,7 @@
         </div>
       </div>
       <hr class="border-1 mb-2" />
-      <nuxt-link :to="'course/'+course.course_slug" class="btn-tutor">View Course</nuxt-link>
+      <NuxtLink :to="'course/'+course.course_slug" class="btn-tutor">View Course</NuxtLink>
     </div>
   </div>
 </template>

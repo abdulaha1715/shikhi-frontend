@@ -69,43 +69,23 @@
                                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                                 <div class="accordion-body">
                                                     <ul class="tutor-class-content-list">
-                                                        <li class="tutor-course-content-list-item">
+                                                        <li v-for="lesson in course.course_lessons" :key="course.course_lessons.lesson_id" class="tutor-course-content-list-item">
                                                             <div class="tutor-d-flex tutor-align-center">
                                                                 <span class="tutor-course-content-list-item-icon tutor-icon-brand-youtube-bold tutor-mr-12"><i class="bi bi-youtube"></i></span>
-                                                                <p class="tutor-course-content-list-item-title">
-                                                                    1. How to use Vue (using the CDN)
+                                                                <NuxtLink v-if="lesson.visiblity != 'private'" :to="$route.path + '/lesson/' + lesson.lesson_slug">
+                                                                    <p class="tutor-course-content-list-item-title text-dark">
+                                                                        {{ lesson.lesson_name }}
+                                                                    </p>
+                                                                </NuxtLink>
+
+                                                                <p v-else class="tutor-course-content-list-item-title text-secondary">
+                                                                    {{ lesson.lesson_name }}
                                                                 </p>
                                                             </div>
 
                                                             <div>
-                                                                <span class="tutor-course-content-list-item-duration tutor-fs-7 tutor-color-muted"> 09:18</span>
-                                                                <span class="tutor-course-content-list-item-status tutor-icon-lock-line tutor-color-muted tutor-ml-20" area-hidden="true"><i class="bi bi-lock"></i></span>
-                                                            </div>
-                                                        </li>
-                                                        <li class="tutor-course-content-list-item">
-                                                            <div class="tutor-d-flex tutor-align-center">
-                                                                <span class="tutor-course-content-list-item-icon tutor-icon-brand-youtube-bold tutor-mr-12"><i class="bi bi-youtube"></i></span>
-                                                                <p class="tutor-course-content-list-item-title">
-                                                                    1. How to use Vue (using the CDN)
-                                                                </p>
-                                                            </div>
-
-                                                            <div>
-                                                                <span class="tutor-course-content-list-item-duration tutor-fs-7 tutor-color-muted"> 09:18</span>
-                                                                <span class="tutor-course-content-list-item-status tutor-icon-lock-line tutor-color-muted tutor-ml-20" area-hidden="true"><i class="bi bi-lock"></i></span>
-                                                            </div>
-                                                        </li>
-                                                        <li class="tutor-course-content-list-item">
-                                                            <div class="tutor-d-flex tutor-align-center">
-                                                                <span class="tutor-course-content-list-item-icon tutor-icon-brand-youtube-bold tutor-mr-12"><i class="bi bi-youtube"></i></span>
-                                                                <p class="tutor-course-content-list-item-title">
-                                                                    1. How to use Vue (using the CDN)
-                                                                </p>
-                                                            </div>
-
-                                                            <div>
-                                                                <span class="tutor-course-content-list-item-duration tutor-fs-7 tutor-color-muted"> 09:18</span>
-                                                                <span class="tutor-course-content-list-item-status tutor-icon-lock-line tutor-color-muted tutor-ml-20" area-hidden="true"><i class="bi bi-lock"></i></span>
+                                                                <!-- <span class="tutor-course-content-list-item-duration tutor-fs-7 tutor-color-muted"> 09:18</span> -->
+                                                                <span v-if="lesson.visiblity == 'private'" class="tutor-course-content-list-item-status tutor-icon-lock-line tutor-color-muted tutor-ml-20" area-hidden="true"><i class="bi bi-lock"></i></span>
                                                             </div>
                                                         </li>
                                                     </ul>
