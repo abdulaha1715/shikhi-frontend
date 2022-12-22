@@ -3,9 +3,6 @@
     <section class="pt-5 pb-4">
         <div class="container">
             <div class="row">
-                <pre>
-                    <!-- {{ course }} -->
-                </pre>
                 <div class="tutor-course-ratings">
                     <div class="tutor-ratings">
                         <div class="tutor-ratings">
