@@ -18,7 +18,6 @@
 				</div>
 				<div class="row">
 					<Courseitem v-for="course in courses" :key="course.course_id" :course="course"></Courseitem>
-					{{ courses }}
 				</div>
 			</div>
 		</section>
