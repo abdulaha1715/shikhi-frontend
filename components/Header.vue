@@ -3,7 +3,9 @@
 		<header>
 			<nav class="navbar navbar-expand-lg navbar-light border-bottom border-1 pt-3 pb-3">
 				<div class="container">
-					<a class="navbar-brand" href="index.html"><h2 class="fw-bolder">Shikhi</h2></a>
+					<NuxtLink class="navbar-brand" to="/">
+						<h2 class="fw-bolder">Shikhi</h2>
+					</NuxtLink>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>

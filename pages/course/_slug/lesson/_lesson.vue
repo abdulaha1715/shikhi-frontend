@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row g-0">
                 <!-- <pre>
-                    {{ course }}
+                    {{ course.course_lessons }}
                 </pre> -->
                 <div class="col-md-4">
                     <p class="mt-3 mx-3">Course Content</p>
@@ -31,17 +31,19 @@
 
                 <div class="col-md-4">
                     <div class="course_info_accordion">
-                        <ul class="p-4">
-                            <li v-for="lesson in course.course_lessons" :key="course.course_lessons.lesson_id" class="tutor-course-content-list-item">
+                        <ul class="p-3">
+                            <li v-for="lesson in course.course_lessons" :key="course.course_lessons.lesson_id" class="tutor-course-content-list-item" :class="$route.params.lesson == lesson.lesson_slug ? 'current_lesson' : ''">
                                 <div class="tutor-d-flex tutor-align-center">
-                                    <span class="tutor-course-content-list-item-icon tutor-icon-brand-youtube-bold tutor-mr-12"><i class="bi bi-youtube"></i></span>
+                                    
                                     <NuxtLink v-if="lesson.visiblity != 'private'" :to="lesson.lesson_slug">
                                         <p class="tutor-course-content-list-item-title text-dark">
+                                            <span class="tutor-course-content-list-item-icon tutor-icon-brand-youtube-bold tutor-mr-12"><i class="bi bi-youtube"></i></span>
                                             {{ lesson.lesson_name }}
                                         </p>
                                     </NuxtLink>
 
                                     <p v-else class="tutor-course-content-list-item-title text-secondary">
+                                        <span class="tutor-course-content-list-item-icon tutor-icon-brand-youtube-bold tutor-mr-12"><i class="bi bi-youtube"></i></span>
                                         {{ lesson.lesson_name }}
                                     </p>
                                 </div>
@@ -162,4 +164,21 @@ export default {
 .current_lesson a p{
     color:#fff !important
 }
+li.tutor-course-content-list-item.current_lesson:hover {
+    background: rgb(42, 147, 165);
+    cursor: pointer;
+}
+li.tutor-course-content-list-item {
+    padding: 4px 10px 4px 10px;
+}
+.tutor-align-center p {
+    font-size: 1rem;
+    padding: 4px 10px 4px 4px;
+    margin: 0;
+}
+.tutor-align-center p i {
+    margin: 0 5px 0 0;
+    padding: 0;
+}
+
 </style>
