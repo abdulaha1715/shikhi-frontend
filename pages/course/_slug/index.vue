@@ -23,9 +23,11 @@
                         <span class="tutor-meta-value">{{ course.course_category }}</span>
                     </div>
 
-                    <div class="d-inline p-2 wishlist">
-                        <span class="tutor-meta-icon tutor-icon-clock-line ml-3" area-hidden="true"><i class="bi bi-bookmark single-card-bookmark"></i></span>
-                        <span class="tutor-meta-value"> Wishlist</span>
+                    <div class="d-inline p-2 wishlist" v-if="!course.progress">
+                        <span style="cursor:pointer" @click.prevent="addToWishlist(course.course_id)">
+                            <span class="tutor-meta-icon tutor-icon-clock-line ml-3" area-hidden="true"><i class="bi bi-bookmark single-card-bookmark"></i></span>
+                            <span class="tutor-meta-value"> Wishlist</span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -207,7 +209,8 @@
                         <div class="card-body single-page-card-body pb-0">
                             <h3 class="card-title mt-3 mb-3">Free</h3>
                         </div>
-                        <a href="single-page.html" class="btn-tutor">Enroll Course</a>
+                        <NuxtLink v-if="course.progress" :to="'/course/' + course.course_slug + '/lesson' + course.course_lessons[0].lesson_slug">Continue Course</NuxtLink>
+                        <button v-else @click.prevent="enrollCourse" class="btn-tutor">Enroll Course</button>
                         <div class="tutor-meta">
                             <div class="tutor-avatar text-center">
                                 Free access this course
@@ -266,9 +269,38 @@ export default {
     this.getCourse()
   },
   methods: {
+    /**
+     * Get course data
+     */
     async getCourse() {
     	const response = await this.$axios.get(this.$route.path);
     	this.course    = response.data.data;
+    },
+
+    /**
+     * Add to wishlist
+     */
+    async addToWishlist( id ) {
+        const response = await this.$axios.get('/wishlist', {
+            course_id: id
+        });
+        // if( !response.data.error ) {
+        //     this.$swal(response.data.message);
+        //     this.getCourse();
+        // }
+    },
+
+    /**
+     * Enroll Course
+     */
+    async enrollCourse() {
+        const response = await this.$axios.get('/enroll', {
+            course_id: this.course.course_id
+        });
+        // if( !response.data.error ) {
+        //     this.$swal(response.data.message);
+        //     this.getCourse();
+        // }
     },
   }
 }

@@ -35,7 +35,7 @@
               </div>
           </div>
           <hr class="border-1 mb-2" />
-          <a href="single-page.html" class="btn-tutor">View Course</a>
+          <NuxtLink :to="'course/'+course.course_slug" class="btn-tutor">View Course</NuxtLink>
       </div>
   </div>
 </template>
