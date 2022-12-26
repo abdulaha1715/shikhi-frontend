@@ -11,7 +11,20 @@
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-							<li class="nav-item">
+							
+							<li v-if="$auth.loggedIn" class="nav-item">
+								<a href=""><img :src="$auth.user.user.user_thumb" alt=""> {{ $auth.user.user.user_name }}</a>
+								<ul>
+									<li>
+										<NuxtLink class="nav-link" aria-current="page" to="/my-profile">My Profile</NuxtLink>
+									</li>
+									<li>
+										<span style="cursor:pointer" @click.prevent="handleLogout" class="nav-link" v-if="$auth.loggedIn">Logout</span>
+									</li>
+								</ul>
+							</li>
+
+							<li v-else class="nav-item">
 								<NuxtLink to="/login"  class="nav-link" aria-current="page">Login</NuxtLink >
 							</li>
 							<li class="nav-item">
@@ -27,7 +40,11 @@
 
 <script>
 export default {
-
+	methods: {
+		handleLogout(){
+            this.$auth.logout()
+        }
+	}
 }
 </script>
 

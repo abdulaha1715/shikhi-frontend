@@ -60,11 +60,22 @@ export default {
 	auth: {
 		strategies: {
 			laravelSanctum: {
-			provider: 'laravel/sanctum',
-			url: 'http://localhost:8000'
+				provider: 'laravel/sanctum',
+				url: 'http://localhost:8000',
+				endpoints: {
+					login: { url: '/api/login', method: 'post' },
+					logout: { url: '/api/logout', method: 'post' },
+					user: { url: '/api/me', method: 'get' }
+				},
 			},
 		}
 	},
+
+	/**
+	 * Login: /api/auth/login
+	 * logout: /api/auth/logout
+	 * user: /api/auth/user
+	 */
 
 	// Build Configuration: https://go.nuxtjs.dev/config-build
 	build: {

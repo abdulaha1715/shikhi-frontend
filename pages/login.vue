@@ -3,7 +3,7 @@
       <div class="col-3 mx-auto my-5 border shadow p-3 ">
   
         <h2 class="card-title">Login</h2>
-        <form method="post">
+        <form @submit.prevent="handleLogin" method="post">
   
           <div class="mt-3">
             <label for="email">Email</label>
@@ -33,14 +33,20 @@
     data() {
       return {
         form: {
-          email: 'admin@shikhi.test',
-          password: '123'
+          email: 'abdulahaislam210917@gmail.com',
+          password: '01918786189'
         }
       }
     },
     mounted() {
     },
     methods: {
+      async handleLogin() {
+        this.$auth.loginWith('laravelSanctum', {
+          data: this.form
+        })
+  
+      }
     }
   }
   </script>
