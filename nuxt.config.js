@@ -72,6 +72,12 @@ export default {
 				  // autoFetch: true
 				},
 			},
+		},
+		redirect: {
+			login: '/login',
+			logout: '/',
+			callback: '/login',
+			home: '/'
 		}
 	},
 
