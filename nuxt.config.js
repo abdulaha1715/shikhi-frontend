@@ -67,6 +67,10 @@ export default {
 					logout: { url: '/api/logout', method: 'post' },
 					user: { url: '/api/me', method: 'get' }
 				},
+				user: {
+				  property: 'user',
+				  // autoFetch: true
+				},
 			},
 		}
 	},
