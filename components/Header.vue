@@ -13,7 +13,7 @@
 						<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 							
 							<li v-if="$auth.loggedIn" class="nav-item">
-								<a href=""><img :src="$auth.user.user_thumb" alt=""> {{ $auth.user.user_name }}</a>
+								<a href=""><img :src="$auth.user.profile.user_thumb" :alt="$auth.user.profile.user_name"> {{ $auth.user.profile.user_name }}</a>
 								<ul>
 									<li>
 										<NuxtLink class="nav-link" aria-current="page" to="/my-profile">My Profile</NuxtLink>
