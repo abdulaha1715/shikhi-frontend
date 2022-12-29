@@ -803,9 +803,10 @@ aside.panel-sidebar {
 .panel-content {
   padding: 25px;
   margin-left: 15px;
-  background: #ffffff;
   border-radius: 5px;
+  background: #ffffff;
   width: calc(100% - 26%);
+  position: relative;
 }
 
 aside.panel-sidebar h3 {
@@ -886,6 +887,12 @@ article.panel-list-wrap ul li a i {
   line-height: 22px;
   margin-left: 10px;
   margin-right: 4px;
+}
+
+.user-last-update {
+  position: absolute;
+  bottom: 0;
+  right: 15px;
 }
 
 
