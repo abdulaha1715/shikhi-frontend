@@ -11,19 +11,19 @@
 						<article class="panel-list-wrap">
 							<ul>
 								<li class="active">
-									<a href="dashboard.html"><i class="bi bi-speedometer2"></i> Dashboard</a>
+									<NuxtLink to="/dashboard"><i class="bi bi-speedometer2"></i> Dashboard</NuxtLink>
 								</li>
 								<li>
-									<a href="profile.html"><i class="bi bi-person-fill"></i>My Profile</a>
+									<NuxtLink to="/my-profile"><i class="bi bi-person-fill"></i> My Profile</NuxtLink>
 								</li>
 								<li>
-									<a href="progress.html"><i class="bi bi-speedometer2"></i> Progress</a>
+									<NuxtLink to="/dashboard"><i class="bi bi-book-fill"></i> Enrolled Courses</NuxtLink>
 								</li>
 								<li>
-									<a href="wishlist.html"><i class="bi bi-water"></i> Wishlist</a>
+									<NuxtLink to="/dashboard"><i class="bi bi-bookmark-fill"></i> Wishlist</NuxtLink>
 								</li>
 								<li>
-									<a href=""><i class="bi bi-box-arrow-right"></i> Logout</a>
+									<NuxtLink to="/logout"><i class="bi bi-box-arrow-right"></i> Logout</NuxtLink>
 								</li>
 							</ul>
 						</article>
